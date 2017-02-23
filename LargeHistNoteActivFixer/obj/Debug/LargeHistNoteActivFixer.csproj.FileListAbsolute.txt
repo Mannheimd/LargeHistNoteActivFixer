@@ -26,3 +26,18 @@ C:\Users\christopher.manders\Dropbox (Personal)\C# Things\LargeHistNoteActivFixe
 C:\Users\christopher.manders\Dropbox (Personal)\C# Things\LargeHistNoteActivFixer\LargeHistNoteActivFixer\obj\Debug\LargeHistNoteActivFixer.csproj.GenerateResource.Cache
 C:\Users\christopher.manders\Dropbox (Personal)\C# Things\LargeHistNoteActivFixer\LargeHistNoteActivFixer\obj\Debug\About.baml
 C:\Users\christopher.manders\Dropbox (Personal)\C# Things\LargeHistNoteActivFixer\LargeHistNoteActivFixer\obj\Debug\About.g.cs
+G:\Users\Chris\Dropbox\C# Things\LargeHistNoteActivFixer\LargeHistNoteActivFixer\bin\Debug\LargeHistNoteActivFixer.exe.config
+G:\Users\Chris\Dropbox\C# Things\LargeHistNoteActivFixer\LargeHistNoteActivFixer\bin\Debug\LargeHistNoteActivFixer.exe
+G:\Users\Chris\Dropbox\C# Things\LargeHistNoteActivFixer\LargeHistNoteActivFixer\bin\Debug\LargeHistNoteActivFixer.pdb
+G:\Users\Chris\Dropbox\C# Things\LargeHistNoteActivFixer\LargeHistNoteActivFixer\obj\Debug\LargeHistNoteActivFixer.csprojResolveAssemblyReference.cache
+G:\Users\Chris\Dropbox\C# Things\LargeHistNoteActivFixer\LargeHistNoteActivFixer\obj\Debug\About.baml
+G:\Users\Chris\Dropbox\C# Things\LargeHistNoteActivFixer\LargeHistNoteActivFixer\obj\Debug\MainWindow.baml
+G:\Users\Chris\Dropbox\C# Things\LargeHistNoteActivFixer\LargeHistNoteActivFixer\obj\Debug\About.g.cs
+G:\Users\Chris\Dropbox\C# Things\LargeHistNoteActivFixer\LargeHistNoteActivFixer\obj\Debug\MainWindow.g.cs
+G:\Users\Chris\Dropbox\C# Things\LargeHistNoteActivFixer\LargeHistNoteActivFixer\obj\Debug\App.g.cs
+G:\Users\Chris\Dropbox\C# Things\LargeHistNoteActivFixer\LargeHistNoteActivFixer\obj\Debug\LargeHistNoteActivFixer_MarkupCompile.cache
+G:\Users\Chris\Dropbox\C# Things\LargeHistNoteActivFixer\LargeHistNoteActivFixer\obj\Debug\LargeHistNoteActivFixer.g.resources
+G:\Users\Chris\Dropbox\C# Things\LargeHistNoteActivFixer\LargeHistNoteActivFixer\obj\Debug\LargeHistNoteActivFixer.Properties.Resources.resources
+G:\Users\Chris\Dropbox\C# Things\LargeHistNoteActivFixer\LargeHistNoteActivFixer\obj\Debug\LargeHistNoteActivFixer.csproj.GenerateResource.Cache
+G:\Users\Chris\Dropbox\C# Things\LargeHistNoteActivFixer\LargeHistNoteActivFixer\obj\Debug\LargeHistNoteActivFixer.exe
+G:\Users\Chris\Dropbox\C# Things\LargeHistNoteActivFixer\LargeHistNoteActivFixer\obj\Debug\LargeHistNoteActivFixer.pdb

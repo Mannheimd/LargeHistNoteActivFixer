@@ -3,27 +3,34 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Large note, history and activity locator" MinHeight="200" MinWidth="600" Height="591" Width="1090">
     <Grid>
-        <Button x:Name="refresh" Content="Refresh" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="refresh_Click" Height="22"/>
-        <ListBox x:Name="databaseNameList" Margin="10,37,0,10" HorizontalAlignment="Left" Width="250"/>
-        <Button Content="Load" Margin="90,10,0,0" VerticalAlignment="Top" Click="load_Click" Height="22" HorizontalAlignment="Left" Width="77"/>
+        <Button x:Name="refresh" Content="Refresh" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="80" Click="refresh_Click" Height="22"/>
+        <ListBox x:Name="databaseNameList" Margin="10,37,0,124" HorizontalAlignment="Left" Width="250"/>
+        <Button Content="Load" Margin="95,10,0,0" VerticalAlignment="Top" Click="load_Click" Height="22" HorizontalAlignment="Left" Width="80"/>
         <TabControl Margin="265,10,10,10" Grid.Column="1" Canvas.ZIndex="98">
             <TabItem Header="Activities">
                 <Grid>
-                    <DataGrid x:Name="activitiesDataGrid" IsReadOnly="True"/>
+                    <DataGrid x:Name="activitiesDataGrid" IsReadOnly="True" HeadersVisibility="Column"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Notes">
                 <Grid>
-                    <DataGrid x:Name="notesDataGrid" IsReadOnly="True"/>
+                    <DataGrid x:Name="notesDataGrid" IsReadOnly="True" HeadersVisibility="Column"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Histories">
                 <Grid>
-                    <DataGrid x:Name="historiesDataGrid" IsReadOnly="True"/>
+                    <DataGrid x:Name="historiesDataGrid" IsReadOnly="True" HeadersVisibility="Column"/>
                 </Grid>
             </TabItem>
         </TabControl>
         <Label x:Name="timeZoneLabel" Margin="445,5,10,0" Canvas.ZIndex="99" Height="27" VerticalAlignment="Top" HorizontalContentAlignment="Right"/>
-        <Button Content="About" HorizontalAlignment="Left" Margin="172,10,0,0" VerticalAlignment="Top" Width="75" Height="22"  Click="about_Click"/>
+        <Button Content="About" HorizontalAlignment="Left" Margin="180,10,0,0" VerticalAlignment="Top" Width="80" Height="22"  Click="about_Click"/>
+        <Label x:Name="label_Status" Content="Status: Ready" HorizontalAlignment="Left" Margin="10,0,0,93" VerticalAlignment="Bottom" Width="250"/>
+        <Label Content="Activities:" HorizontalAlignment="Left" Margin="10,0,0,62" VerticalAlignment="Bottom" Width="219"/>
+        <Label x:Name="label_ActivitiesCount" HorizontalAlignment="Left" Margin="234,0,0,62" VerticalAlignment="Bottom" Width="26" Height="26" Content=""/>
+        <Label Content="Notes:" HorizontalAlignment="Left" Margin="10,0,0,36" VerticalAlignment="Bottom" Width="219"/>
+        <Label x:Name="label_NotesCount" HorizontalAlignment="Left" Margin="234,0,0,36" VerticalAlignment="Bottom" Width="26" Height="26"/>
+        <Label Content="Histories:" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="219"/>
+        <Label x:Name="label_HistoriesCount" HorizontalAlignment="Left" Margin="234,0,0,10" VerticalAlignment="Bottom" Width="26" Height="26"/>
     </Grid>
 </Window>

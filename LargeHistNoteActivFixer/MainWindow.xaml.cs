@@ -38,13 +38,13 @@ namespace LargeHistNoteActivFixer
         {            
             try
             {
-                // Clear the DataTable
+                // Clear the Databases DataTable
                 databaseTable.Clear();
 
                 // Connect to ACT7 instance
                 string connectionString = @"Data Source=(local); Initial Catalog=master; Server=(local)\ACT7; Integrated Security=True;";
                 SqlConnection dataConnection = new SqlConnection(connectionString);
-                SqlCommand command = new SqlCommand("select name from sys.databases where name != 'master' and name != 'model' and name != 'msdb' and name != 'tempdb'", dataConnection);
+                SqlCommand command = new SqlCommand("select name from sys.databases where name != 'master' and name != 'model' and name != 'msdb' and name != 'tempdb' and name != 'ActEmailMessageStore'", dataConnection);
                 dataConnection.Open();
     
                 // Create data adaptor and populate database list
@@ -64,6 +64,9 @@ namespace LargeHistNoteActivFixer
 
                 databases.Sort();
                 databaseNameList.ItemsSource = databases;
+
+                // Update status to Ready
+                label_Status.Content = "Status: Ready";
             }
             catch (Exception error)
             {
@@ -78,9 +81,17 @@ namespace LargeHistNoteActivFixer
 
         private void load_Click(object sender, RoutedEventArgs e)
         {
-            loadActivities();
-            loadNotes();
-            loadHistories();
+            label_Status.Content = "Status: Working...";
+
+            if (loadActivities() & loadNotes() & loadHistories())
+            {
+                label_Status.Content = "Status: Completed successfully";
+            }
+            else label_Status.Content = "Status: Completed with errors";
+
+            label_ActivitiesCount.Content = activitiesTable.Rows.Count.ToString();
+            label_NotesCount.Content = notesTable.Rows.Count.ToString();
+            label_HistoriesCount.Content = historiesTable.Rows.Count.ToString();
         }
 
         private void about_Click(object sender, RoutedEventArgs e)
@@ -89,7 +100,7 @@ namespace LargeHistNoteActivFixer
             aboutWindow.Show();
         }
 
-        private void loadActivities()
+        private bool loadActivities()
         {
             if (databaseNameList.SelectedIndex != -1)
             {
@@ -125,19 +136,25 @@ namespace LargeHistNoteActivFixer
 
                     // Throw the DataTable at the UI to be displayed
                     activitiesDataGrid.ItemsSource = activitiesTable.DefaultView;
+
+                    return true;
                 }
                 catch (Exception error)
                 {
                     MessageBox.Show(error.Message);
+
+                    return false;
                 }
             }
             else
             {
                 MessageBox.Show("No database selected.");
+
+                return false;
             }
         }
 
-        private void loadNotes()
+        private bool loadNotes()
         {
             if (databaseNameList.SelectedIndex != -1)
             {
@@ -170,19 +187,25 @@ namespace LargeHistNoteActivFixer
 
                     // Throw the DataTable at the UI to be displayed
                     notesDataGrid.ItemsSource = notesTable.DefaultView;
+
+                    return true;
                 }
                 catch (Exception error)
                 {
                     MessageBox.Show(error.Message);
+
+                    return false;
                 }
             }
             else
             {
                 MessageBox.Show("No database selected.");
+
+                return false;
             }
         }
 
-        private void loadHistories()
+        private bool loadHistories()
         {
             if (databaseNameList.SelectedIndex != -1)
             {
@@ -218,15 +241,21 @@ namespace LargeHistNoteActivFixer
 
                     // Throw the DataTable at the UI to be displayed
                     historiesDataGrid.ItemsSource = historiesTable.DefaultView;
+
+                    return true;
                 }
                 catch (Exception error)
                 {
                     MessageBox.Show(error.Message);
+
+                    return false;
                 }
             }
             else
             {
                 MessageBox.Show("No database selected.");
+
+                return false;
             }
         }
     }
