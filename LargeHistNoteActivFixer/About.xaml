@@ -1,0 +1,11 @@
+﻿<Window x:Class="LargeHistNoteActivFixer.About"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="About" Height="326" Width="491" ResizeMode="NoResize">
+    <Grid>
+        <Button Content="Close" Margin="0,0,10,10" Click="close_Click" HorizontalAlignment="Right" Width="77" Height="24" VerticalAlignment="Bottom"/>
+        <TextBlock Margin="10,10,10,0" Canvas.ZIndex="98" TextWrapping="Wrap" Height="244" VerticalAlignment="Top"><Run Text="This tool is only to be used by or when working with an authorised Act! technician. Usage outside of this situation is done at your own risk."/><LineBreak/><Run/><LineBreak/><Run Text="It is recommended to back up the database before proceeding."/><LineBreak/><Run/><LineBreak/><Run Text="This tool is designed to allow identification of notes, histories and activities that are over 2mb in size which could be causing problems syncing a remote database via Act! Internet Sync."/><LineBreak/><Run/><LineBreak/><Run Text="Use the Act! application to "/><Run Text="identify and correct affected records."/><LineBreak/><Run/><Run Foreground="Red" FontWeight="Bold" Text="DO NOT "/><Run Text="delete the entire record. Instead, look for any images or other large data within the record and work with the database administrator to amend this."/><LineBreak/><Run/><LineBreak/><Run Text="Note t"/><Run Text="hat this may take some time to load information in a large database. The tool will appear unresponsive until it has fully loaded."/></TextBlock>
+        <Label Content="Created and maintained by Chris Manders." HorizontalAlignment="Left" Margin="10,0,0,0" FontSize="10" Width="199" Height="23" VerticalAlignment="Bottom"/>
+        <Label Content="v1.0" Margin="0,-4,0,0" VerticalAlignment="Top" FontSize="10" Height="26" Canvas.ZIndex="99" HorizontalAlignment="Right" Width="31"/>
+    </Grid>
+</Window>
