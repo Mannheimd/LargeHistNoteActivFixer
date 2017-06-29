@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 
 namespace LargeHistNoteActivFixer
@@ -79,10 +80,15 @@ namespace LargeHistNoteActivFixer
             loadDatabases();
         }
 
-        private void load_Click(object sender, RoutedEventArgs e)
+        private async void load_Click(object sender, RoutedEventArgs e)
         {
             label_Status.Content = "Status: Working...";
 
+            loadRecords();
+        }
+
+        private void loadRecords()
+        {
             if (loadActivities() & loadNotes() & loadHistories())
             {
                 label_Status.Content = "Status: Completed successfully";
@@ -112,7 +118,7 @@ namespace LargeHistNoteActivFixer
                     // Connect to ACT7 instance
                     string connectionString = @"Data Source=(local); Initial Catalog=" + databaseNameList.SelectedItem.ToString() + @"; Server=(local)\ACT7; Integrated Security=True;";
                     SqlConnection dataConnection = new SqlConnection(connectionString);
-                    SqlCommand command = new SqlCommand("select tbl_contact.fullname as 'Contact Name', tbl_contact.COMPANYNAME as 'Company', tbl_activity.starttime as 'Start Time', tbl_activity.createdate as 'Create Date', tbl_activity.regarding as 'Regarding', tbl_activity.ACTIVITYID as 'Activity GUID' from tbl_activity left join tbl_contact_activity on tbl_contact_activity.ACTIVITYID = TBL_ACTIVITY.ACTIVITYID left join TBL_CONTACT on TBL_CONTACT.CONTACTID = TBL_CONTACT_ACTIVITY.CONTACTID where DATALENGTH(tbl_activity.regarding) + DATALENGTH(tbl_activity.details) >= 2000000 order by STARTTIME", dataConnection);
+                    SqlCommand command = new SqlCommand("select tbl_contact.fullname as 'Contact Name', tbl_contact.COMPANYNAME as 'Company', tbl_activity.starttime as 'Start Time', tbl_activity.createdate as 'Create Date', tbl_activity.editdate as 'Edit Date', tbl_activity.regarding as 'Regarding', tbl_activity.ACTIVITYID as 'Activity GUID' from tbl_activity left join tbl_contact_activity on tbl_contact_activity.ACTIVITYID = TBL_ACTIVITY.ACTIVITYID left join TBL_CONTACT on TBL_CONTACT.CONTACTID = TBL_CONTACT_ACTIVITY.CONTACTID where DATALENGTH(tbl_activity.details) >= 2000000 order by STARTTIME", dataConnection);
                     dataConnection.Open();
 
                     // Create data adaptor and populate database list
@@ -128,10 +134,13 @@ namespace LargeHistNoteActivFixer
                     {
                         string startTimeString = activitiesTable.Rows[i]["Start Time"].ToString();
                         string createDateString = activitiesTable.Rows[i]["Create Date"].ToString();
+                        string editDateString = activitiesTable.Rows[i]["Edit Date"].ToString();
                         DateTime startTime = Convert.ToDateTime(startTimeString);
                         DateTime createDate = Convert.ToDateTime(createDateString);
+                        DateTime editDate = Convert.ToDateTime(editDateString);
                         activitiesTable.Rows[i]["Start Time"] = localTime.ToLocalTime(startTime);
                         activitiesTable.Rows[i]["Create Date"] = localTime.ToLocalTime(createDate);
+                        activitiesTable.Rows[i]["Edit Date"] = localTime.ToLocalTime(editDate);
                     }
 
                     // Throw the DataTable at the UI to be displayed
@@ -166,7 +175,7 @@ namespace LargeHistNoteActivFixer
                     // Connect to ACT7 instance
                     string connectionString = @"Data Source=(local); Initial Catalog=" + databaseNameList.SelectedItem.ToString() + @"; Server=(local)\ACT7; Integrated Security=True;";
                     SqlConnection dataConnection = new SqlConnection(connectionString);
-                    SqlCommand command = new SqlCommand("select tbl_contact.fullname as 'Contact Name', tbl_contact.COMPANYNAME as 'Company', tbl_note.createdate as 'Create Date', tbl_note.NOTEID as 'Note GUID' from tbl_note left join tbl_contact_note on tbl_contact_note.NOTEID = TBL_NOTE.NOTEID left join TBL_CONTACT on TBL_CONTACT.CONTACTID = TBL_CONTACT_NOTE.CONTACTID where DATALENGTH(tbl_note.notetext) >= 2000000 order by fullname", dataConnection);
+                    SqlCommand command = new SqlCommand("select tbl_contact.fullname as 'Contact Name', tbl_contact.COMPANYNAME as 'Company', tbl_note.createdate as 'Create Date', tbl_note.editdate as 'Edit Date', tbl_note.NOTEID as 'Note GUID' from tbl_note left join tbl_contact_note on tbl_contact_note.NOTEID = TBL_NOTE.NOTEID left join TBL_CONTACT on TBL_CONTACT.CONTACTID = TBL_CONTACT_NOTE.CONTACTID where DATALENGTH(tbl_note.notetext) >= 2000000 order by fullname", dataConnection);
                     dataConnection.Open();
 
                     // Create data adaptor and populate database list
@@ -181,8 +190,11 @@ namespace LargeHistNoteActivFixer
                     for (int i = 0; i < notesTable.Rows.Count; i++)
                     {
                         string dateTimeString = notesTable.Rows[i]["Create Date"].ToString();
+                        string editDateString = notesTable.Rows[i]["Edit Date"].ToString();
                         DateTime dateTime = Convert.ToDateTime(dateTimeString);
+                        DateTime editDate = Convert.ToDateTime(editDateString);
                         notesTable.Rows[i]["Create Date"] = localTime.ToLocalTime(dateTime);
+                        notesTable.Rows[i]["Edit Date"] = localTime.ToLocalTime(editDate);
                     }
 
                     // Throw the DataTable at the UI to be displayed
@@ -217,7 +229,7 @@ namespace LargeHistNoteActivFixer
                     // Connect to ACT7 instance
                     string connectionString = @"Data Source=(local); Initial Catalog=" + databaseNameList.SelectedItem.ToString() + @"; Server=(local)\ACT7; Integrated Security=True;";
                     SqlConnection dataConnection = new SqlConnection(connectionString);
-                    SqlCommand command = new SqlCommand("select tbl_contact.fullname as 'Contact Name', tbl_contact.COMPANYNAME as 'Company', tbl_history.starttime as 'Start Time', tbl_history.createdate as 'Create Date', tbl_history.regarding as 'Regarding', tbl_history.HISTORYID as 'History GUID' from tbl_history left join tbl_contact_history on tbl_contact_history.HISTORYID = TBL_HISTORY.HISTORYID left join TBL_CONTACT on TBL_CONTACT.CONTACTID = TBL_CONTACT_HISTORY.CONTACTID where DATALENGTH(tbl_history.regarding) + DATALENGTH(tbl_history.details) >= 2000000 order by starttime", dataConnection);
+                    SqlCommand command = new SqlCommand("select tbl_contact.fullname as 'Contact Name', tbl_contact.COMPANYNAME as 'Company', tbl_history.starttime as 'Start Time', tbl_history.createdate as 'Create Date', tbl_history.editdate as 'Edit Date', tbl_history.regarding as 'Regarding', tbl_history.HISTORYID as 'History GUID' from tbl_history left join tbl_contact_history on tbl_contact_history.HISTORYID = TBL_HISTORY.HISTORYID left join TBL_CONTACT on TBL_CONTACT.CONTACTID = TBL_CONTACT_HISTORY.CONTACTID where DATALENGTH(tbl_history.details) >= 2000000 order by starttime", dataConnection);
                     dataConnection.Open();
 
                     // Create data adaptor and populate database list
@@ -233,10 +245,13 @@ namespace LargeHistNoteActivFixer
                     {
                         string startTimeString = historiesTable.Rows[i]["Start Time"].ToString();
                         string createDateString = historiesTable.Rows[i]["Create Date"].ToString();
+                        string editDateString = historiesTable.Rows[i]["Edit Date"].ToString();
                         DateTime startTime = Convert.ToDateTime(startTimeString);
                         DateTime createDate = Convert.ToDateTime(createDateString);
+                        DateTime editDate = Convert.ToDateTime(editDateString);
                         historiesTable.Rows[i]["Start Time"] = localTime.ToLocalTime(startTime);
                         historiesTable.Rows[i]["Create Date"] = localTime.ToLocalTime(createDate);
+                        historiesTable.Rows[i]["Edit Date"] = localTime.ToLocalTime(editDate);
                     }
 
                     // Throw the DataTable at the UI to be displayed
