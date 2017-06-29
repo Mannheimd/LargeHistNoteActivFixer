@@ -28,3 +28,18 @@ G:\Users\Chris\Dropbox\C# Things\LargeHistNoteActivFixer\LargeHistNoteActivFixer
 G:\Users\Chris\Dropbox\C# Things\LargeHistNoteActivFixer\LargeHistNoteActivFixer\obj\Release\LargeHistNoteActivFixer.Properties.Resources.resources
 G:\Users\Chris\Dropbox\C# Things\LargeHistNoteActivFixer\LargeHistNoteActivFixer\obj\Release\LargeHistNoteActivFixer.csproj.GenerateResource.Cache
 C:\Users\christopher.manders\Dropbox (Personal)\C# Things\LargeHistNoteActivFixer\LargeHistNoteActivFixer\obj\Release\LargeHistNoteActivFixer.csprojResolveAssemblyReference.cache
+C:\Users\christopher.manders\Documents\Development\Github Repos\LargeHistNoteActivFixer\LargeHistNoteActivFixer\bin\Release\LargeHistNoteActivFixer.exe.config
+C:\Users\christopher.manders\Documents\Development\Github Repos\LargeHistNoteActivFixer\LargeHistNoteActivFixer\bin\Release\LargeHistNoteActivFixer.exe
+C:\Users\christopher.manders\Documents\Development\Github Repos\LargeHistNoteActivFixer\LargeHistNoteActivFixer\bin\Release\LargeHistNoteActivFixer.pdb
+C:\Users\christopher.manders\Documents\Development\Github Repos\LargeHistNoteActivFixer\LargeHistNoteActivFixer\obj\Release\LargeHistNoteActivFixer.csprojResolveAssemblyReference.cache
+C:\Users\christopher.manders\Documents\Development\Github Repos\LargeHistNoteActivFixer\LargeHistNoteActivFixer\obj\Release\About.baml
+C:\Users\christopher.manders\Documents\Development\Github Repos\LargeHistNoteActivFixer\LargeHistNoteActivFixer\obj\Release\MainWindow.baml
+C:\Users\christopher.manders\Documents\Development\Github Repos\LargeHistNoteActivFixer\LargeHistNoteActivFixer\obj\Release\About.g.cs
+C:\Users\christopher.manders\Documents\Development\Github Repos\LargeHistNoteActivFixer\LargeHistNoteActivFixer\obj\Release\MainWindow.g.cs
+C:\Users\christopher.manders\Documents\Development\Github Repos\LargeHistNoteActivFixer\LargeHistNoteActivFixer\obj\Release\App.g.cs
+C:\Users\christopher.manders\Documents\Development\Github Repos\LargeHistNoteActivFixer\LargeHistNoteActivFixer\obj\Release\LargeHistNoteActivFixer_MarkupCompile.cache
+C:\Users\christopher.manders\Documents\Development\Github Repos\LargeHistNoteActivFixer\LargeHistNoteActivFixer\obj\Release\LargeHistNoteActivFixer.g.resources
+C:\Users\christopher.manders\Documents\Development\Github Repos\LargeHistNoteActivFixer\LargeHistNoteActivFixer\obj\Release\LargeHistNoteActivFixer.Properties.Resources.resources
+C:\Users\christopher.manders\Documents\Development\Github Repos\LargeHistNoteActivFixer\LargeHistNoteActivFixer\obj\Release\LargeHistNoteActivFixer.csproj.GenerateResource.Cache
+C:\Users\christopher.manders\Documents\Development\Github Repos\LargeHistNoteActivFixer\LargeHistNoteActivFixer\obj\Release\LargeHistNoteActivFixer.exe
+C:\Users\christopher.manders\Documents\Development\Github Repos\LargeHistNoteActivFixer\LargeHistNoteActivFixer\obj\Release\LargeHistNoteActivFixer.pdb
